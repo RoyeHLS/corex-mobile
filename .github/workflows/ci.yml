@@ -1,6 +1,9 @@
-name: Pull Request into Master, Develop and Preprod
+name: CI
 
 on:
+  push:
+    branches:
+      - development
   pull_request:
     branches:
       - 'main'
