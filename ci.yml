@@ -1,0 +1,38 @@
+name: Pull Request into Master, Develop and Preprod
+
+on:
+  pull_request:
+    branches:
+      - "master"
+      - "develop"
+      - "preprod"
+
+jobs:
+  #First job
+  install-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: "npm"
+
+      - name: Install Node modules
+        run: npm ci
+
+      - name: Linting
+        run: npm lint
+
+      - name: Unit & Integration tests
+        run: npm test:ci
+
+      - name: Jest coverage report
+        uses: ArtiomTr/jest-coverage-report-action@v2.0.6
+        with:
+          coverage-file: ./jest-report.json
+          base-coverage-file: ./jest-report.json
