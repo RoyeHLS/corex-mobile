@@ -3,11 +3,7 @@ import {Button, View, Text, Alert} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 
 import {styles} from './styles';
-
-interface ILocation {
-  latitude: string;
-  longitude: string;
-}
+import {ILocation} from '../../utils/types';
 
 const UserLocation: React.FC = () => {
   const [location, setLocation] = useState<ILocation>();

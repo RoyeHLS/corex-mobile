@@ -2,11 +2,14 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 import UserLocation from './src/pages/UserLocation/UserLocation';
+import VoiceRecognition from './src/pages/VoiceRecognition/VoiceRecognition';
 
 const App: React.FC = () => {
   return (
     <View style={styles.mainContainer}>
       <UserLocation />
+
+      <VoiceRecognition />
     </View>
   );
 };
